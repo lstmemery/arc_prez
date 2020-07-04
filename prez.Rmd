@@ -8,28 +8,299 @@ output: revealjs::revealjs_presentation
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+## Abstract
+- We tend to evaluate skill instead of skill acquisition efficiency
+- New benchmark based on [[Algorithmic Information Theory]]
+- ARC built on explicit priors for huamn-like intelligence
+- The field needs more actionable defintion
 
-## R Markdown
+## Weaknesses of Field Currently
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+- Current algorithms are narrow and data hungry
+- Turing Test relies on human judges
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+Legg and Hutter ins 2007 "to the best of our knowledge, no general survey of tests and definitions has been published"
+<!-- Review Hernandez-Orallo 2017 -->
 
-## Slide with Bullets
+ - Lack of agreement biases research to narrow, well defined skills
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+## Defining Intelligence
 
-## Slide with R Output
+- Legg and Hutton "Intelligence measures an agent's ability to achieve goals in a wide range of environments."
+- We have two goals
+    1. Achieve tests
+    2. Adaptability
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+## Intelligence as Task-Specific Skill Ability
 
-## Slide with Plot
+- [[Evolutionary Psychology]]: Human cognitive function is the result of adaptations
+- [[Minksy 1968]]: "AI is the science of making machines capable of performing tasks that would requier intelligence if done by humans." (Note: quite self-cirricular)
+- This thinking led to the development of knowledge bases
 
-```{r pressure}
-plot(pressure)
-```
+## Intelligence as General Learning Ability
 
+ - Humans are not blank slates, we should not treat machines like they are
+
+## AI Evaluation
+
+### Skill-based, narrow AI evaluation
+- Approaches
+    - Human review (Turing test)
+    - White-box analysis (Solve a fully-descirbed task like Sodoku)
+    - Peer confrontation (AlphaGo)
+    - Benchmarks (Split train and test sets like Kaggle)
+- Benchmark Pros:
+    - Reproducible
+    - Fair (Need to make sure priors are similar)
+    - Scalable (Not necessarily ARC)
+    - Flexible
+- Benchmark Cons:
+    - Makes overly-specific models (Kaggle overoptimization)
+
+McCorduck [61] AI Effect: "Every time somebody figured out how to make a computer do something...there was a chorus of critics to say 'that 's not thinking"
+- ARC Goal: Computers should efficiently acquire skills in general
+
+
+### The Spectrum of Generalization
+
+"the ability to situations (or tasks) differ from previously encountered sitations."
+
+1. System-centric generalization 
+    - Most machine learning is here
+    - Developer can encode some prior knowledge for potential new challenges
+ 2. Developer-aware generalization
+     - Handles challenges well out of training distribution
+ 1. Absence of generalization: Classical algorithms. No uncertainty.
+ 2. Local generalization Robustness (Most machine learning)
+ 3. Broad generalization: Wozniuk's coffee cup challenge
+ 4. Extreme generalization: Human-level intelligence
+ 5. Universal generalization: Impossible due to the [[No Free Lunch Theorem]]
+
+### Psychometrics Perspective
+
+ Psychometrics equivalents: 
+ 	 - Task-specific skills (a single answered question)
+ 	 - Broad cognitive abilities (meta-cognition)
+ 	 - General intelligence (g-factor)
+
+Psychometrics requirements:
+ - Must be reliable
+ - Tasks should be be unknown to the test taker
+
+### ARC vs. Other Tests
+- SuperGLUE attempts to measure performance across several NLP fields
+- These tests are still gameable and test only skills
+- [[Animal AI Olympics]] is another good test
+- > What about giving AI IQ tests?
+- There are many assumptions IQ tests take that do not hold in AI
+
+### Principles of an AGI Test
+- Measure abilities, not skills
+- Use a battery of tests, not one
+- Set standards on reliability, validity (Are we measuring what we say we measure) and standardization (i.e. Benchmarks)
+- Remove bias (human-level knowledge)
+- Focus on skill acquisition, not skills themselves
+
+### Current trends in AGI evaluation
+- Look at data efficiency in RL
+- Most RL tests don't measure reobustness
+- Can sample arbitrary amounts of data
+- (e.g. OpenAI 5 was brittle to exploits)
+
+### Measuring the right thing
+- DeepBlue didn't get us much closer to AGI
+- Neither did the video game challenges
+- Real life is a chaotic system, we need to optimizae adaptability
+- Often, the video game challenges are measuring the ML engineer's intelligence, not the system itself
+- Note that [[KNNs]] can solve any task, given enough data
+
+## The meaning of generality
+- Deep learning systems are local generalization systems
+- Do AI have a g-factor?
+- Let's try to reverse engineer the human brain
+
+### G-factor
+- IQ tests are very human centric
+- Why not consider octopus camoflauge intelligence?
+- Think of G-factor like general athleticism
+- There are limits to athletic measurement, we wouldn't measure humans at the bottom of the ocean or Mars
+- Humans are incredible efficient at solving 2D and 3D problems but we are terrible at 4D problems
+
+### General Intelligence as a Spectrum
+- Generality requires a scope of tests
+- We need to measure the degree of generalization difficulty of tasks
+
+### Insights from Developmental Psychology
+- Human intellifence is not hard-coded, but we also aren't blank slates
+- To compare intelligences we need to control for experience, priors and difficulty of the task
+- Some human priors
+    - Reflex priors (uninteresting to us for this challenge)
+    - Metalearning priors (These are the priors we are trying to reverse engineer)
+    - High level knowledge priors (e.g. object permenance)
+- Machines lack these priors but have hard-coded knowledge
+
+## Priors
+- We should make the machine priors as close to human priors as possible
+- The less priors you have, the more difficulty the disadvantaged the machine is
+- **All priors should be enumerated**
+
+### ARC Priors
+- Objectness and elementary physics
+    - Object recognition
+    - Cohesion
+    - Persistance
+    - Contact
+
+- Agentness
+    - Some objects act **contigently** and **reciprocally**
+
+- Natural numbers up to 10
+    - comparison
+    - sorting
+    - addition and subtraction
+
+- Geoemtry/Topology
+    - Distance
+    - Orientation
+    - In/Out relantionships
+
+All of these should be hard-coded into an AI as a domain specific language
+
+## Intelligence as Skill Acquisition Efficiency
+- "The intelligence of a system is a measure of it's skill acquisition efficiency over a scope of tasks with respect to priors, experience, and generalization difficulty"
+- Intelligence encompasses meta-learning priors, memory and fluid intelligence
+
+## Position of the Problem
+![](/home/deadhand/Documents/matt-zettlr/img/arc1.png)
+- {Insert schematic here}
+- Task gives a situation to the skill program and receives a response in return. The task then gives feedback to the intelligent system and a score. The task then updates
+- Intelligent system (IS) generates a skill program and receives feedback from the task. The intelligent system updates on getting feedback
+- Skill program receives a situation from the task and returns a response. Continues until receiving a STOP situation
+
+### The evaluation phase
+- The Intelligent System creates a skill program and then can no longer interact with the system
+- IS receives a sum of scaled scores
+- IS needs a sufficient skill threshold, the minimum skill needed to solve a task
+- Cirriculum, the sequence of training examples the skill program interacts with
+
+## Algorithmic Information Theory
+- Measures the information content of a math objects
+- Algorithmic Complexity $$H(s)$$: shortest Turing machine to get a solution
+Example, all even numbers less than 10000000
+- Relative Algorithmic Complexity $$H(s_1|s_2)$$: The shortest turing machine instructions if $$s_2$$ given
+- Generalization difficulty: 
+$$G D_{T, C}^{\theta}=\frac{H\left(\operatorname{Sol}_{T}^{\theta} \mid \operatorname{TrainSol}_{T, C}^{o p t}\right)}{H\left(\operatorname{Sol}_{T}^{\theta}\right)}$$
+The short solution to task T given the shortest optimal train time solution given by cirriculum C
+If the optimal train time solution solves Sol, the generalization is 0
+Example: A nearest neighbor algo vs. single cut off
+
+## Developer Aware Generalization Difficulty
+$$G D_{I S, T, C}^{\theta}=\frac{H\left(S o l_{T}^{\theta} \mid \text {TrainSol}_{T, C}^{\text {opt}}, I S_{t=0}\right)}{H\left(\operatorname{Sol}_{T}^{\theta}\right)}$$
+This now accounts for the IS's priors
+
+## Experience
+$$E_{I S, T, t}^{\theta}=H\left(S o l_{T}^{\theta} \mid I S_{t}\right)-H\left(S o l_{T}^{\theta} \mid I S_{t}, d a t a_{t}\right)$$
+Over cirriculym C:
+$$E_{I S, T, C}^{\theta}=\frac{1}{H\left(S o l_{T}^{\theta}\right)} \sum_{t} E_{I S, T, t}^{\theta}$$
+- If the cirriculum is noisy or repetitive the algorithm is not punished
+- Experience is the amount of relevant, novel information in the system
+
+## Putting it all together
+$$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_{T} \cdot \theta_{T} \sum_{C \in C u r_{T}^{\theta_{T}}}\left[P_{C} \cdot \frac{G D_{I S, T, C}^{\theta_{T}}}{P_{I S, T}^{\theta_{T}}+E_{I S, T, C}^{\theta_{T}}}\right]\right]$$
+We are trying to maximize this value
+Adding priors and experience reduced the intelligence
+Generalization difficulty increases it
+$\omega_T$ is the subjective measure of skill involved
+- intelligence is tried to scope
+- A better cirriculum can increase intelligence
+
+### Alternative Efficiencies
+- Computational efficiency of skill programs/intelligent systems
+- Time efficiency
+- Energy efficiency (the brain uses less energy than computers)
+- Risk efficiency (could be important if IS interacting with the real world)
+
+## Pracitical Implications
+- Creating an intelligent system can be seen as an optimization problem
+- Focuses on broad abilities
+- Focuses on [[program synethesis]]
+- Focus on cirriculum development
+- Defines generalization levels
+- Can compare humans to AI
+
+### Fair evaluation between Intelligent Systems
+- Scope must be well-defined
+- Focus on skill-efficiency not  maxmium skill
+- Only compare intelligence of systems with similar priors
+
+### Expectations of an ideal intelligence benchmark
+- Describe scope of applications and provide validity
+- Should be reproduible
+- Should have developer-aware generalization
+- Should quanitify GD (ARC doesn't)
+- Should account for data
+- Should exhaustively describe priors
+- Should be available to both humans and machines
+
+## The ARC Dataset
+- Similar to Raven's Progressive Matrices
+- Broad
+- Developer-aware
+- Experience Controlled
+- Priors stated
+- 400 training tasks/400 public evaluations/200 private
+
+### ARC description
+- Up to 10 unique symbols/colors
+- Size from 1x1 to 30x30
+- Usually 3 trials per test
+- A typical human can solve most ARC problems with no previous training
+
+## ARC Core Knowledge Priors
+### Objectness
+- Cohesion
+- Persistance
+- Influence on Contact
+
+### Number and Counting Priors
+- Can count, sort and compare
+- Addition and subtraction
+
+### Geometry/Topology
+- Rectangles
+- Symmetries
+- Upscaling/Downscaling
+- Drawing Lines
+- Copying
+
+### Differences with Psychometric Tests
+- No crystallized knowledge (like NLp or object recognition)
+- Greater task diversity
+- ARC challenges are not generated programmatically
+
+### What would a possible intelligent system look like?
+- At least 1 and 3 high IQ humans were able to solve each task
+- Need more human data for a fair comparison
+- Deep learning won't work here
+- Program synthesis important
+- Make a Domain Specific Language (DSL) to describe all possible situations
+- Generate candidate programs
+- Select top 3 candidates
+
+### Weaknesses & Future Refinement
+- ARC solve could have human-like intelligent, or not!
+- Generalization difficult not quantified
+- Test validaty not established
+- Dataset diversity is limited
+- Evalutaion is overly close-ended
+- Priors may not be well captured in ARC
+
+### Possible Alternatives
+- Depend on other benchmarks
+- Open-ended or collaborative approaches
+
+### Taking stock
+- Intelligence is efficiency of learning
+- Need to account for priors, experience and generalization difficulty
+- 
+- 
