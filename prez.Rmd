@@ -168,10 +168,16 @@ All of these should be hard-coded into an AI as a domain specific language
 
 > "The intelligence of a system is a measure of it's skill acquisition efficiency over a scope of tasks with respect to priors, experience, and generalization difficulty"
 
+$$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_{T} \cdot \theta_{T} \sum_{C \in C u r_{T}^{\theta_{T}}}\left[P_{C} \cdot \frac{G D_{I S, T, C}^{\theta_{T}}}{P_{I S, T}^{\theta_{T}}+E_{I S, T, C}^{\theta_{T}}}\right]\right]$$
 
-## Position of the Problem
+
+## How do we measure this type of intelligence
 ![](/home/deadhand/Documents/matt-zettlr/img/arc1.png)
-- {Insert schematic here}
+
+- This is a different way of thinking about machine learning
+- In training, the machine learning model is constant producing skill programs and the task is responding to the skill program itself
+- For example, a neural network produces arrays of numbers (the skill program) and the task will give feedback
+
 - Task gives a situation to the skill program and receives a response in return. The task then gives feedback to the intelligent system and a score. The task then updates
 - Intelligent system (IS) generates a skill program and receives feedback from the task. The intelligent system updates on getting feedback
 - Skill program receives a situation from the task and returns a response. Continues until receiving a STOP situation
@@ -182,36 +188,6 @@ All of these should be hard-coded into an AI as a domain specific language
 - IS needs a sufficient skill threshold, the minimum skill needed to solve a task
 - Cirriculum, the sequence of training examples the skill program interacts with
 
-## Algorithmic Information Theory
-- Measures the information content of a math objects
-- Algorithmic Complexity $$H(s)$$: shortest Turing machine to get a solution
-Example, all even numbers less than 10000000
-- Relative Algorithmic Complexity $$H(s_1|s_2)$$: The shortest turing machine instructions if $$s_2$$ given
-- Generalization difficulty: 
-$$G D_{T, C}^{\theta}=\frac{H\left(\operatorname{Sol}_{T}^{\theta} \mid \operatorname{TrainSol}_{T, C}^{o p t}\right)}{H\left(\operatorname{Sol}_{T}^{\theta}\right)}$$
-The short solution to task T given the shortest optimal train time solution given by cirriculum C
-If the optimal train time solution solves Sol, the generalization is 0
-Example: A nearest neighbor algo vs. single cut off
-
-## Developer Aware Generalization Difficulty
-$$G D_{I S, T, C}^{\theta}=\frac{H\left(S o l_{T}^{\theta} \mid \text {TrainSol}_{T, C}^{\text {opt}}, I S_{t=0}\right)}{H\left(\operatorname{Sol}_{T}^{\theta}\right)}$$
-This now accounts for the IS's priors
-
-## Experience
-$$E_{I S, T, t}^{\theta}=H\left(S o l_{T}^{\theta} \mid I S_{t}\right)-H\left(S o l_{T}^{\theta} \mid I S_{t}, d a t a_{t}\right)$$
-Over cirriculym C:
-$$E_{I S, T, C}^{\theta}=\frac{1}{H\left(S o l_{T}^{\theta}\right)} \sum_{t} E_{I S, T, t}^{\theta}$$
-- If the cirriculum is noisy or repetitive the algorithm is not punished
-- Experience is the amount of relevant, novel information in the system
-
-## Putting it all together
-$$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_{T} \cdot \theta_{T} \sum_{C \in C u r_{T}^{\theta_{T}}}\left[P_{C} \cdot \frac{G D_{I S, T, C}^{\theta_{T}}}{P_{I S, T}^{\theta_{T}}+E_{I S, T, C}^{\theta_{T}}}\right]\right]$$
-We are trying to maximize this value
-Adding priors and experience reduced the intelligence
-Generalization difficulty increases it
-$\omega_T$ is the subjective measure of skill involved
-- intelligence is tried to scope
-- A better cirriculum can increase intelligence
 
 ### Alternative Efficiencies
 - Computational efficiency of skill programs/intelligent systems
