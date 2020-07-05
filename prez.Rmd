@@ -24,8 +24,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Table of Contents
 
  - What is the goal of this competition?
- - What is intelligence?
- - Introducing the Abstraction and Reasoning Corpus (ARC)
+ - **What is intelligence?**
+ - The Abstraction and Reasoning Corpus (ARC)
  - Kaggle Solutions
 
 <aside class="notes">
@@ -35,9 +35,7 @@ This competition is different from any other. We will spend most of the time dis
 ## What is the goal of Abstraction and Reasoning Corpus (ARC)?
 
 <div id="left">
-> ARC can be used to measure a human-like form of general fluid intelligence and that it enables fair general intelligence comparisons between AI systems and humans.
-
-On The Measure of Intelligence
+> The Abstraction and Reasoning Corpus (ARC) provides a benchmark to measure AI skill-acquisition on unknown tasks, with the constraint that only a handful of demonstrations are shown to learn a complex task. It provides a glimpse of a future where AI could quickly learn to solve new problems on its own.
 </div>
 
 <div id="right">
@@ -82,14 +80,35 @@ Chollet's argument: We've spent too much time on the first part!
 <div id="left">
 - If the real world is a chaotic system, we need to optimize adaptability
 - DeepBlue didn't get us much closer to AGI
-- Neither did the video game challenges
-- Often, the video game challenges are measuring the ML engineer's intelligence, not the system itself
-- Note that a k-nearest neighbour algorithm can solve any task, given enough data
+- Neither did the latest reinforcement learning algoirthms
+- Often, these challenges measure the ML engineer's intelligence, not the system itself
 </div>
 
 <div id="right">
 ![](img/alphago.jpg)
 </div>
+
+<aside class="notes">
+
+- Note that a k-nearest neighbour algorithm can solve any task, given enough data
+</aside>
+
+## Current trends in AGI evaluation
+
+<div id="left">
+- Look at data efficiency in RL
+- Most RL tests don't measure robustness
+- Can sample arbitrary amounts of data
+- Example: OpenAI Five was brittle to exploits
+</div>
+
+<div id="right">
+![](img/openai5cheese.png)
+</div>
+
+<aside class="notes">
+This tweet is saying that one of OpenAI DOTA bots can be tricked into teleporting onto a ledge it can't get down from
+</aside>
 
 ## What would a good AI adaptability benchmark have?
 
@@ -100,41 +119,58 @@ Chollet's argument: We've spent too much time on the first part!
 
 ## Two ways of thinking about generalization
 
-1. System-centric generalization
-  - Most machine learning is here
-  - The developer tries to compensate for data not in the dataset
-  - Known unknowns
 
-2. Developer-aware generalization
-  - Generalizations beyond what the developer expected
-  - Unknown unknowns
+<div id="left">
+#### System-centric generalization
 
-[](./img/impact.gif)
+- Most machine learning is here
+- The developer tries to compensate for data not in the dataset
+- Known unknowns
+</div>
+
+<div id="right">
+#### Developer-aware generalization
+
+- Generalizations beyond what the developer expected
+- Unknown unknowns
+</div>
+
+<aside class="notes">
+The game of Go never changes. What would happen if we changed the size of the board?
+</aside>
+
+---
+
+![](./img/impact.gif)
+<!-- Increase the size here -->
 
 
 ## The generalization spectrum
 
- 1. Absence of generalization: Classical algorithms. No uncertainty.
- 2. Local generalization Most machine learning
- 3. Broad generalization: Wozniuk's coffee cup challenge
+ 1. **Absence of generalization:** Classical algorithms. No uncertainty.
+ 2. **Local generalization:** Most machine learning
+ 3. **Broad generalization:** Wozniuk's coffee cup challenge
  4. **Extreme generalization:** Human-level intelligence
- 5. Universal generalization: Impossible due to the No Free Lunch Theorem
+
 
 ## Psychometrics Perspective
 
- - There's a whole field dedicated to measuring intelligence called psychometrics
-
 ![](img/psychometrics.png)
+
+<aside class="notes">
+- There's a whole field dedicated to measuring intelligence called psychometrics
+</aside>
 
 ## G Factor
 
-- IQ tests are very human centric
-- Why not consider octopus camoflauge intelligence?
 - Think of G Factor like general athleticism
-- There are limits to athletic measurement, we wouldn't measure humans at the bottom of the ocean or Mars
-- Humans are incredible efficient at solving 2D and 3D problems but we are terrible at 4D problems
+- There are limits to athletic measurement, we wouldn't measure humans at the bottom of the ocean or on Mars
+- Humans are incredible efficient at solving 2D and 3D problems but we are terrible at 4D+ problems
 
-<!-- Why don't we give AI IQ tests? There are too many human centric assumptions -->
+<aside class="notes">
+- IQ tests are very human-centric
+- Why not consider octopus camouflage intelligence?
+</aside>
 
 ## Principles of an AGI Test
 
@@ -144,29 +180,15 @@ Chollet's argument: We've spent too much time on the first part!
 - Remove the need for human-level knowledge (bias)
 - Focus on skill acquisition efficiency, not skills themselves
 
-## Current trends in AGI evaluation
-
-<div id="left">
-- Look at data efficiency in RL
-- Most RL tests don't measure reobustness
-- Can sample arbitrary amounts of data
-- OpenAI Five was brittle to exploits
-</div>
-
-<div id="right">
-![](img/openai5cheese.png)
-</div>
-
-
 ## Priors
 
 - Human intelligence is not hard-coded, but we also aren't blank slates
-- To compare intelligences we need to control for experience, priors and difficulty of the task
+- To compare intelligence we need to control for experience, priors and difficulty of the task
 - Some human priors:
-    - Reflex priors (uninteresting to us for this challenge)
+    - Reflexes (uninteresting to us for this challenge)
     - Metalearning priors (These are the priors we are trying to reverse engineer)
-    - High level knowledge priors (e.g. object permenance)
-- Machines lack these priors but have hard-coded knowledge
+    - High level knowledge priors (e.g. object permanence)
+- Current ML lack these priors but have hard-coded knowledge
 
 ## Priors
 
@@ -175,26 +197,25 @@ Chollet's argument: We've spent too much time on the first part!
 - **All priors should be enumerated**
 
 ## ARC Priors
+
 - Objectness and elementary physics
     - Object recognition
     - Cohesion
-    - Persistance
+    - Persistence
     - Contact
 
 - Agentness
-    - Some objects act **contigently** and **reciprocally**
+    - Some objects act **contingently** and **reciprocally**
 
 - Natural numbers up to 10
     - comparison
     - sorting
     - addition and subtraction
 
-- Geoemtry/Topology
+- Geometry/Topology
     - Distance
     - Orientation
-    - In/Out relantionships
-
-All of these should be hard-coded into an AI as a domain specific language
+    - In/Out relationships
 
 ## Contactness
 
@@ -211,6 +232,15 @@ All of these should be hard-coded into an AI as a domain specific language
 ## Distance
 
 ![](img/distance2.png)
+
+## Object Persistence and Size Comparison
+
+![](img/hard-arc.png)
+
+## Object Persistence and Size Comparison
+
+![](img/hard-arc2.png)
+
 
 ## Francois Chollet's Definition of Intelligence
 
