@@ -2,7 +2,7 @@
 title: "Abstraction and Reasoning Challenge: Kaggle's Toughest Competition"
 author: "Matthew Emery"
 date: "7/8/2020"
-bibliography: bib.tex
+bibliography: arc.bib
 output: 
   revealjs::revealjs_presentation:
     theme: night
@@ -12,10 +12,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-## TODOs
-
- - Bibliography
 
 ---
 
@@ -27,9 +23,26 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Table of Contents
 
+ - What is the goal of this competition?
  - What is intelligence?
- - Introducing the Abstraction and Reasoning Corpus
+ - Introducing the Abstraction and Reasoning Corpus (ARC)
  - Kaggle Solutions
+
+<aside class="notes">
+This competition is different from any other. We will spend most of the time discussing the philosophy of the dataset instead of the solutions.
+</aside>
+
+## What is the goal of Abstraction and Reasoning Corpus (ARC)?
+
+<div id="left">
+> ARC can be used to measure a human-like form of general fluid intelligence and that it enables fair general intelligence comparisons between AI systems and humans.
+
+On The Measure of Intelligence
+</div>
+
+<div id="right">
+![](img/chollet.jpg)
+</div>
 
 ## What is the goal of AI Research?
 
@@ -39,32 +52,44 @@ knitr::opts_chunk$set(echo = FALSE)
 Notice is a pretty circular argument. How would we test this?
 </aside>
 
-## What is the goal of Introducing the Abstraction and Reasoning Corpus (ARC)?
-
-<div id="left">
-> ARC can be used to measure a human-like form of general fluid intelligence and that it enables fair general intelligence comparisons between AI systems and humans.
-</div>
-
-<div id="right">
-![](img/chollet.jpg)
-</div>
 
 ## Weaknesses of AI Research
 
+<div id="left>
  - Current algorithms are narrow and data hungry
- - Turing Test relies on human judges
+ - Famous AI competitions like the Turing Test rely on human judges
  - Lack of agreement biases research to narrow, well defined skills
+</div>
+
+<div id="right">
+
+![](img/loebner.png)
+</div>
+<!-- This is broken -->
 
 ## Defining Intelligence Currently
 
-From Legg and Hutter:
-
-> Intelligence measures an agent’s ability to *achieve goals* in a *wide range of environments*.
+> Intelligence measures an agent’s ability to *achieve goals* in a *wide range of environments*. 
+- Legg and Hutter
 
 1. Achieve goals 
 2. Wide range of environments (Adaptability and Generalization)
 
-Chollet's argument: We've spent too much time on 1.
+Chollet's argument: We've spent too much time on the first part!
+
+## Measuring the right thing
+
+<div id="left">
+- If the real world is a chaotic system, we need to optimize adaptability
+- DeepBlue didn't get us much closer to AGI
+- Neither did the video game challenges
+- Often, the video game challenges are measuring the ML engineer's intelligence, not the system itself
+- Note that a k-nearest neighbour algorithm can solve any task, given enough data
+</div>
+
+<div id="right">
+![](img/alphago.jpg)
+</div>
 
 ## What would a good AI adaptability benchmark have?
 
@@ -132,13 +157,6 @@ Chollet's argument: We've spent too much time on 1.
 ![](img/openai5cheese.png)
 </div>
 
-## Measuring the right thing
-
-- DeepBlue didn't get us much closer to AGI
-- Neither did the video game challenges
-- Real life is a chaotic system, we need to optimize adaptability
-- Often, the video game challenges are measuring the ML engineer's intelligence, not the system itself
-- Note that a k-nearest neighbour algorithm can solve any task, given enough data
 
 ## Priors
 
@@ -275,9 +293,9 @@ $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_
 
 - ARC solve could have human-like intelligent, or not!
 - Generalization difficult not quantified
-- Test validaty not established
+- Test validity not established
 - Dataset diversity is limited
-- Evalutaion is overly close-ended
+- Evaluation is overly close-ended
 - Priors may not be well captured in ARC
 
 ## The Kaggle competition
