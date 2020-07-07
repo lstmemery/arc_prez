@@ -248,7 +248,7 @@ $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_
 
 ## How do we measure this type of intelligence
 
-![](/home/deadhand/Documents/matt-zettlr/img/arc1.png)
+![](img/arc1.png)
 
 <aside class="notes">
 - This is a different way of thinking about machine learning
