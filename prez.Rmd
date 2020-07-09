@@ -42,6 +42,8 @@ This competition is different from any other. We will spend most of the time dis
 ![](img/chollet.jpg)
 </div>
 
+## Guess time: What percentage of the problems in ARC test set were solved by the 1st place AI? 
+
 ## What is the goal of AI Research?
 
 > AI is the science of making machines capable of performing tasks that would require intelligence if done by humans. - Marvin Minsky
@@ -51,7 +53,7 @@ Notice is a pretty circular argument. How would we test this?
 </aside>
 
 
-## Weaknesses of AI Research
+## Weaknesses of Current AI Research Approach
 
 <div id="left">
  - Current algorithms are narrow and data hungry
@@ -63,7 +65,6 @@ Notice is a pretty circular argument. How would we test this?
 
 ![](img/loebner.png)
 </div>
-<!-- This is broken -->
 
 ## Defining Intelligence Currently
 
@@ -80,7 +81,7 @@ Chollet's argument: We've spent too much time on the first part!
 <div id="left">
 - If the real world is a chaotic system, we need to optimize for adaptability
 - DeepBlue didn't get us much closer to AGI
-- Neither did the latest reinforcement learning algoirthms
+- Neither did the latest reinforcement learning algorithms
 - Often, these challenges measure the ML engineer's intelligence, not the system itself
 </div>
 
@@ -108,6 +109,10 @@ Chollet's argument: We've spent too much time on the first part!
 <aside class="notes">
 This tweet is saying that one of OpenAI DOTA bots can be tricked into teleporting onto a ledge it can't get down from
 </aside>
+
+## AI Effect
+
+> "Every time somebody figured out how to make a computer do something...there was a chorus of critics to say 'that's not thinking" - Pamela McCorduck
 
 ## What would a good AI adaptability benchmark have?
 
@@ -202,8 +207,9 @@ The game of Go never changes. What would happen if we changed the size of the bo
     - Persistence
     - Contact
 
-- Agentness
-    - Some objects act **contingently** and **reciprocally**
+- Agency
+    - Some objects seem to react to their environment (like avoiding walls)
+    - Some objects seem to react to other objects (a pip following another pip)
 
 - Natural numbers up to 10
     - Comparison/Sorting
@@ -267,31 +273,18 @@ In ARC:
 ## Implications of the Intelligence Definition
 
 - Creating an intelligent system can be seen as an optimization problem
-- Focuses on broad abilities
-- Focuses on program synthesis
+- Focus on skill acquisition efficiency
 - Defines generalization levels
 - Can compare humans to AI
 
-## Program Synthesis
-
-- Build a library of primitive functions
-- Learn how to compose these primitive functions together to solve problems
-
-## Fair evaluation between Intelligent Systems
-
-- Scope must be well-defined
-- Focus on skill-efficiency not maximum skill
-- Only compare intelligence of systems with similar priors
-
 ## The ARC Dataset
 
-- Broad
 - Developer-aware
 - Experience Controlled
-- Priors stated
+- Priors enumerated
 - 400 training tasks/400 public evaluations/200 private
 
-## ARC description
+## ARC test description
 
 - Up to 10 unique symbols/colors
 - Size from 1x1 to 30x30
@@ -302,7 +295,6 @@ In ARC:
 ## Differences with Psychometric Tests
 
 - No crystallized knowledge (like NLP or object recognition)
-- Greater task diversity
 - ARC challenges are not generated programmatically
 
 ## What would a possible intelligent system look like?
@@ -314,7 +306,7 @@ In ARC:
 - Generate candidate programs
 - Select top 3 candidates
 
-## Weaknesses & Future Refinement
+## ARC Weaknesses & Future Refinement
 
 - ARC solve could have human-like intelligent, or not!
 - Generalization difficult not quantified
@@ -342,11 +334,6 @@ In ARC:
  - Used a short of guided evolution strategy, applying random operations in the training loop and keeping the top 3 results
  - Correctness was based on pixel-wise distance
 
-## AI Effect
-<!-- Should I keep? -->
-
-McCorduck [61] AI Effect: "Every time somebody figured out how to make a computer do something...there was a chorus of critics to say 'that's not thinking"
-
-## When do you think an algorithm will "solve" on ARC?
+## When do you think an algorithm will outperform humans on ARC?
 
 ## Bibliography
