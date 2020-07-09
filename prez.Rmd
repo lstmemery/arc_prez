@@ -1,6 +1,6 @@
 ---
 title: "Abstraction and Reasoning Challenge: Kaggle's Toughest Competition"
-author: "Matthew Emery"
+author: "Matthew Emery (@lstmemery)"
 date: "7/8/2020"
 bibliography: arc.bib
 output: 
@@ -42,7 +42,7 @@ This competition is different from any other. We will spend most of the time dis
 ![](img/chollet.jpg)
 </div>
 
-## Guess time: What percentage of the problems in ARC test set were solved by the 1st place AI? 
+## What percentage of the problems in ARC test set were solved by the 1st place AI? 
 
 ## What is the goal of AI Research?
 
@@ -145,9 +145,7 @@ The game of Go never changes. What would happen if we changed the size of the bo
 
 ---
 
-![](./img/impact.gif)
-<!-- Increase the size here -->
-
+<img src="./img/impact.gif" height="200%" width="200%">
 
 ## The generalization spectrum
 
