@@ -1,6 +1,6 @@
 ---
 title: "Abstraction and Reasoning Challenge: Kaggle's Toughest Competition"
-author: "Matthew Emery (@lstmemery)"
+author: "Matthew Emery (lstmemery)"
 date: "7/8/2020"
 bibliography: arc.bib
 output: 
@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ---
 
 ![](img/easy2.png)
+
+## Why are machines so bad at this?
 
 ## Table of Contents
 
@@ -154,6 +156,10 @@ The game of Go never changes. What would happen if we changed the size of the bo
  3. **Broad generalization:** Wozniak's coffee cup challenge
  4. **Extreme generalization:** Human-level intelligence
 
+## What's Human Intelligence?
+
+> AI is the science of making machines capable of performing tasks that would require intelligence if done by humans. - Marvin Minsky
+
 
 ## Psychometrics Perspective
 
@@ -174,12 +180,12 @@ The game of Go never changes. What would happen if we changed the size of the bo
 - Why not consider octopus camouflage intelligence?
 </aside>
 
-## Principles of an AGI Test
+## Lessons from Psychometrics
 
 - Measure abilities, not skills
 - Use a battery of tests
 - Set standards on reliability and validity
-- Remove the need for human-level knowledge
+- Remove the need for non-universal knowledge
 - Focus on skill acquisition efficiency
 
 ## Human Priors
@@ -205,20 +211,20 @@ The game of Go never changes. What would happen if we changed the size of the bo
     - Persistence
     - Contact
 
-- Agency
+- **Agency**
     - Some objects seem to react to their environment (like avoiding walls)
     - Some objects seem to react to other objects (a pip following another pip)
 
-- Natural numbers up to 10
+- **Natural numbers up to 10**
     - Comparison/Sorting
     - Addition and subtraction
 
-- Geometry/Topology
+- **Geometry/Topology**
     - Symmetry
     - Orientation
     - In/Out relationships
 
-## Contactness
+## Contact/Goal-Directedness
 
 ![](img/contactness-before.png)
 
@@ -248,9 +254,14 @@ The game of Go never changes. What would happen if we changed the size of the bo
 > The intelligence of a system is a measure of it's skill acquisition efficiency over a scope of tasks with respect to priors, experience, and generalization difficulty
 
 $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_{T} \cdot \theta_{T} \sum_{C \in C u r_{T}^{\theta_{T}}}\left[P_{C} \cdot \frac{G D_{I S, T, C}^{\theta_{T}}}{P_{I S, T}^{\theta_{T}}+E_{I S, T, C}^{\theta_{T}}}\right]\right]$$
+## Implications of the Intelligence Definition
 
+- Creating an intelligent system can be seen as an optimization problem
+- Focus on skill acquisition efficiency
+- Controls for priors and experience
+- Can compare humans to AI
 
-## How do we measure this type of intelligence
+## Measuring Intelligence: A Diagram
 
 ![](img/arc1.png)
 
@@ -260,20 +271,6 @@ $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_
 - For example, a neural network produces arrays of numbers (the skill program) and the task will give feedback (in the form of gradients) based on the skill programs response
 </aside>
 
-## The Evaluation Phase
-
-- The Intelligent System (IS) creates a skill program and then can no longer interact with the system
-
-In ARC:
-
-- ARC gets three tries to create a skill program for each task
-
-## Implications of the Intelligence Definition
-
-- Creating an intelligent system can be seen as an optimization problem
-- Focus on skill acquisition efficiency
-- Defines generalization levels
-- Can compare humans to AI
 
 ## The ARC Dataset
 
@@ -286,9 +283,10 @@ In ARC:
 
 - Up to 10 unique symbols/colors
 - Size from 1x1 to 30x30
-- Usually 3 trials per test
+- Usually 3 examples per task
 - A typical human can solve most ARC problems with no previous training
 - At least 1 and 3 high IQ humans were able to solve each task
+- Intelligent system gets 3 guess per task
 
 ## Differences with Psychometric Tests
 
@@ -302,7 +300,7 @@ In ARC:
 - Program synthesis important
 - Make a Domain Specific Language (DSL) to describe all possible situations
 - Generate candidate programs
-- Select top 3 candidates
+
 
 ## ARC Weaknesses & Future Refinement
 
@@ -329,9 +327,9 @@ In ARC:
  
  - 19.7% solved
  - Was less than 2% solved for the first 6 weeks
- - Used a short of guided evolution strategy, applying random operations in the training loop and keeping the top 3 results
- - Correctness was based on pixel-wise distance
+ - Used a guided evolution strategy, applying random operations in the training loop and keeping the top 3 results
+ - Correctness was based on a proxy measure: pixel-wise distance
 
 ## When do you think an algorithm will outperform humans on ARC?
 
-## Bibliography
+# References
