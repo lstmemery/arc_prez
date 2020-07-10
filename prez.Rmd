@@ -197,7 +197,7 @@ The game of Go never changes. What would happen if we changed the size of the bo
     - Metalearning priors (These are the priors we are trying to reverse engineer)
     - High level knowledge priors (e.g. object permanence)
 
-## Priors
+## Machine Priors
 
 - We should make the machine priors as close to human priors as possible
 - The less priors you have, the more disadvantaged the machine is
@@ -254,6 +254,7 @@ The game of Go never changes. What would happen if we changed the size of the bo
 > The intelligence of a system is a measure of it's skill acquisition efficiency over a scope of tasks with respect to priors, experience, and generalization difficulty
 
 $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_{T} \cdot \theta_{T} \sum_{C \in C u r_{T}^{\theta_{T}}}\left[P_{C} \cdot \frac{G D_{I S, T, C}^{\theta_{T}}}{P_{I S, T}^{\theta_{T}}+E_{I S, T, C}^{\theta_{T}}}\right]\right]$$
+
 ## Implications of the Intelligence Definition
 
 - Creating an intelligent system can be seen as an optimization problem
@@ -271,16 +272,9 @@ $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_
 - For example, a neural network produces arrays of numbers (the skill program) and the task will give feedback (in the form of gradients) based on the skill programs response
 </aside>
 
-
-## The ARC Dataset
-
-- Developer-aware
-- Experience Controlled
-- Priors enumerated
-- 400 training tasks/400 public evaluations/200 private
-
 ## ARC test description
 
+- 400 training tasks/400 public evaluations/200 private
 - Up to 10 unique symbols/colors
 - Size from 1x1 to 30x30
 - Usually 3 examples per task
@@ -293,14 +287,12 @@ $$I_{I S, s c o p e}^{\theta_{T}}=\underset{T \in s c o p e}{A v g}\left[\omega_
 - No crystallized knowledge (like NLP or object recognition)
 - ARC challenges are not generated programmatically
 
-## What would a possible intelligent system look like?
+## What would a possible Intelligent System look like?
 
-- Need more human data for a fair comparison
 - Deep learning won't work here
-- Program synthesis important
+- Focus on Program synthesis
 - Make a Domain Specific Language (DSL) to describe all possible situations
-- Generate candidate programs
-
+- Have a good of finding candidate programs
 
 ## ARC Weaknesses & Future Refinement
 
